@@ -8,6 +8,7 @@ import store from '@/store/index'
 import Meta from 'vue-meta'
 import Mixin from '@/mixins'
 
+import 'element-ui/lib/theme-chalk/index.css'
 import '@/router/permission'
 
 Vue.use(Meta)
