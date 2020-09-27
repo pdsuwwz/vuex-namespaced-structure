@@ -4,13 +4,13 @@ import Vuex from 'vuex'
 /**
  * 存放模块化的 module
  */
-import WorkspaceModule from '@/modules/Workspace/store'
+import DemoTestModule from '@/modules/DemoTest/store'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    Workspace: WorkspaceModule
+    DemoTest: DemoTestModule
   }
 })
 export default store
