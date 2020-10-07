@@ -1,5 +1,6 @@
 
 import { sleep } from '@/utils/request'
+import { MUTATION } from "./mutation-types"
 
 const WorkspaceModule = {
   namespaced: true,
@@ -17,12 +18,12 @@ const WorkspaceModule = {
       const result = [1,2,3,4,5]
       await sleep(1000)
       console.log('🌶')
-      commit('SET_WORKSPACE_LIST', result)
+      commit(MUTATION.SET_WORKSPACE_LIST, result)
       return result
     },
   },
   mutations: {
-    SET_WORKSPACE_LIST: (state, workspaceList) => {
+    [MUTATION.SET_WORKSPACE_LIST]: (state, workspaceList) => {
       state.workspaceList = workspaceList
     }
   },

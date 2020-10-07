@@ -23,4 +23,11 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+#app h1 > a {
+  color: #00bce6;
+  transform: all .4s;
+}
+#app h1 > a:hover {
+  color: #009dc0;
+}
 </style>
