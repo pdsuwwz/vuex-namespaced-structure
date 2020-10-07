@@ -4,6 +4,9 @@ import { Message } from 'element-ui'
 import { getCookieToken } from '@/utils/cookie'
 import { camelizeKeys, decamelizeKeys } from '@/utils/camelCase'
 
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
 // 创建axios实例
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API, // api 的 base_url
@@ -13,6 +16,7 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(
   config => {
+    NProgress.start()
     config.data = decamelizeKeys(config.data)
     config.params = decamelizeKeys(config.params)
     if (getCookieToken()) {
@@ -28,10 +32,12 @@ service.interceptors.request.use(
 // respone拦截器
 service.interceptors.response.use(
   response => {
+    NProgress.done()
     const data = response.data
     return camelizeKeys(data)
   },
   error => {
+    NProgress.done()
     if (error.response) {
       switch (error.response.status) {
         case 400:
